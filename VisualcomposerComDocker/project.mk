@@ -31,11 +31,9 @@ fixcodestandardphpaddons:
 installmain:
 	cd ../$(PROJECT_FOLDER_PLUGIN); git remote add upstream git@github.com:VisualComposer/builder.git; git remote set-url --push upstream no_push;yarn install --ignore-engines; yarn build; php ci/composer.phar update; bash tools/elements/buildScript.sh; cp backend/env-dev.php ../$(PROJECT_FOLDER)/wp-content/plugins/builder
 installelements:
-	cd ../$(PROJECT_FOLDER_PLUGIN); git clone git@github.com:VisualComposer/devElements.git; cd devElements;yarn install --ignore-engines; bash .hubtools/buildScript.sh
-# 	cd ../$(PROJECT_FOLDER_PLUGIN); git clone https:\/\/github.com/VisualComposer/devAddons.git; cd devElements;yarn install --ignore-engines; bash .hubtools/buildScript.sh
+	cd ../$(PROJECT_FOLDER_PLUGIN); git clone git@github.com:VisualComposer/devElements.git; cd devElements; yarn install --ignore-engines; bash .hubtools/buildScript.sh
 installaddons:
-	cd ../$(PROJECT_FOLDER_PLUGIN); git clone git@github.com:VisualComposer/devAddons.git; git clone git@gitlab.com:visualcomposer-hub/hubtools.git; bash hubtools/addons/buildScript.sh
-# 	cd ../$(PROJECT_FOLDER_PLUGIN); git clone https:\/\/github.com/VisualComposer/devElements.git; git clone git@gitlab.com:visualcomposer-hub/hubtools.git; bash hubtools/addons/buildScript.sh
+	cd ../$(PROJECT_FOLDER_PLUGIN); git clone git@github.com:VisualComposer/devAddons.git; cd devAddons; bash .hubtools/buildScript.sh
 installpremium:
 	make installelements
 	make installaddons
