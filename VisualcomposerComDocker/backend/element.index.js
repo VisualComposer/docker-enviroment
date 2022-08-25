@@ -1,0 +1,1 @@
+import '../../../../tests/cypressConfig/cypress/support/index.js'
